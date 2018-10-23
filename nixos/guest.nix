@@ -2,7 +2,7 @@
 
 {
   # Enable guest additions.
-  services.virtualboxGuest.enable = true;
+  virtualisation.virtualbox.guest.enable = true;
 
   # Use the GRUB 2 boot loader.
   boot.loader.grub.enable = true;
@@ -11,4 +11,8 @@
 
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
+  
+  users.users.root.initialHashedPassword = "test";
+  
+  boot.initrd.checkJournalingFS = false;
 }

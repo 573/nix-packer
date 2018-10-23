@@ -7,7 +7,7 @@
     mutableUsers = false;
 
     extraGroups = [ { name = "vagrant"; } { name = "vboxsf"; } ];
-    extraUsers  = [
+    users  = [
       {
         name            = "vagrant";
         description     = "Vagrant User";

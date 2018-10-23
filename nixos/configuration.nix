@@ -14,7 +14,7 @@ in {
     ./vagrant-hostname.nix
   ];
 
-  nix.useChroot = true;
+  nix.useSandbox = true;
 
   environment.systemPackages =
     [ ]

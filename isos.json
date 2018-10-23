@@ -22,5 +22,11 @@
     "channel": "https://nixos.org/channels/nixos-unstable",
     "guest_os_type": "Linux",
     "sha256": "3be04e0fb814bab05a0bc86e507ebdc106497f13103756b19af6a279a25bca34"
+  },
+  "nixos-18.09-x86_64": {
+    "url": "https://d3g5gsiof5omrk.cloudfront.net/nixos/18.09/nixos-18.09.892.c06f5302f63/nixos-minimal-18.09.892.c06f5302f63-x86_64-linux.iso",
+    "channel": "https://nixos.org/channels/nixos-18.09",
+    "guest_os_type": "Linux_64",
+    "sha256": "d3c90a0402d46aabc8a73446ca50f6b2c59595d89d7be4999b5f92c98ca6486a"
   }
 }

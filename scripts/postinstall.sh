@@ -3,11 +3,14 @@
 set -e
 set -x
 
+###nix-channel --add https://nixos.org/channels/nixos-18.09 nixos-18.09
+###nix-channel --update
+
 # Upgrade.
-nixos-rebuild switch --upgrade
+###nixos-rebuild switch --upgrade
 
 # Cleanup any previous generations and delete old packages.
-nix-collect-garbage -d
+###nix-collect-garbage -d
 
 #################
 # General cleanup

@@ -52,3 +52,19 @@ $ sh ./build-stable.sh    \
     -var 'cpus=2'         \
     -var 'swap_size=2000'
 ```
+
+# Variants
+
+https://github.com/nix-community/nixbox  
+https://github.com/nix-community/vagrant-nixos-plugin  
+https://github.com/sprotheroe/vagrant-disksize  
+
+# Hacks
+
+Added 18.09  
+
+Ssh keys are retrieved (https://github.com/flomotlik/packer-example.git), even better would be smth like in https://github.com/nix-community/nixbox.
+
+Deactivated some lines in scripts/postinstall.sh as that did not work out.
+
+disksize plugin does not work, use disk_size parameter to packer.

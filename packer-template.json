@@ -16,7 +16,7 @@
       "vm_name": "{{ user `vm_name` }}",
       "guest_os_type": "@GUEST_OS_TYPE@",
       "disk_size": "{{ user `disk_size` }}",
-      "boot_wait": "0.7m",
+      "boot_wait": "1.0m",
       "boot_command": [
         "root<enter>",
         "export HTTP_IP={{ .HTTPIP }}<enter>",
@@ -32,7 +32,7 @@
       "iso_checksum": "{{ user `iso_checksum` }}",
       "shutdown_command": "sudo shutdown -h now",
       "ssh_username": "vagrant",
-      "ssh_key_path": "keys/vagrant.key",
+      "ssh_private_key_file": "keys/vagrant.key",
       "ssh_wait_timeout": "25m",
       "virtualbox_version_file": ".vbox_version",
       "guest_additions_mode": "disable",

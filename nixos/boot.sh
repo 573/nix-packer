@@ -56,7 +56,7 @@ if [ -z "$GRAPHICAL" ]; then
   sed -i 's/graphical\.nix/text.nix/' /mnt/etc/nixos/configuration.nix
 fi
 
-nixos-install
+nixos-install --no-root-passwd
 
 sleep 2
 reboot -f
