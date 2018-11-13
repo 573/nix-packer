@@ -3,14 +3,24 @@
 set -e
 set -x
 
-###nix-channel --add https://nixos.org/channels/nixos-18.09 nixos-18.09
-###nix-channel --update
+nix-channel --add https://nixos.org/channels/nixos-18.09 nixos
+nix-channel --update nixos
+cat /etc/nixos/configuration.nix
+sudo systemctl daemon-reload
+sudo nixos-rebuild switch --upgrade
+
+### try https://unix.stackexchange.com/a/447046/102072
+#$(which nixos-enter) --root / # most probably led to wrong permissions of /home/vagrant/.cache
+#$(which nixos-enter) --root / -- nix-channel --add https://nixos.org/channels/nixos-18.09 nixos
+#$(which nixos-enter) --root / -- nix-channel --update nixos
+
 
 # Upgrade.
-###nixos-rebuild switch --upgrade
+#$(which nixos-enter) --root / -- nixos-rebuild switch --upgrade
+#nixos-rebuild switch --fallback --show-trace --option binary-caches https://cache.nixos.org/
 
 # Cleanup any previous generations and delete old packages.
-###nix-collect-garbage -d
+#$(which nixos-enter) --root / -- nix-collect-garbage -d
 
 #################
 # General cleanup

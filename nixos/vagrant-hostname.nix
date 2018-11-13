@@ -1,1 +1,4 @@
-{ config, pkgs, ... }: {}
+{ config, pkgs, ... }:
+{
+	networking.hostName = "nixbox";
+}

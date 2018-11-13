@@ -15,6 +15,8 @@ in {
   ];
 
   nix.useSandbox = true;
+  
+  systemd.services.systemd-udev-settle.enable = false;
 
   environment.systemPackages =
     [ ]
