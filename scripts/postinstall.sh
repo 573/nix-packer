@@ -5,6 +5,23 @@ set -x
 
 nix-channel --add https://nixos.org/channels/nixos-18.09 nixos
 nix-channel --update nixos
+
+# Mount a VirtualBox shared folder.
+# This is configurable in the VirtualBox menu at
+# Machine / Settings / Shared Folders.
+# Also devices' "nameofdevicetomount" is found there
+# Add this after packer only, according to Vagrantfile
+# https://unix.stackexchange.com/questions/45591/using-a-here-doc-for-sed-and-a-file/170200#170200
+# https://github.com/NixOS/nixpkgs/issues/38429
+# process substitution only with bash and no posix meaning no sh, could use shebang /bin/bash here or
+# write some very nasty function myself here but no, rather using the simpler variant
+#sed -f <( cat << SED_SCRIPT
+#s/}/  fileSystems."\/mnt" = {\n    fsType = "vboxsf";\n    device = "vagrant";\n    options = [ "rw" ];\n  };\n}/g
+#SED_SCRIPT) /etc/nixos/guest.nix | sudo tee /etc/nixos/guest.nix
+
+cat /etc/nixos/guest.nix | sed -E '$s/}/\n  fileSystems."\/mnt" = {\n    fsType = "vboxsf";\n    device = "vagrant";\n    options = [ "rw,noauto,x-systemd.automount" ];\n  };\n}/g' | sudo tee /etc/nixos/guest.nix
+sudo mkdir /mnt
+
 cat /etc/nixos/configuration.nix
 sudo systemctl daemon-reload
 sudo nixos-rebuild switch --upgrade

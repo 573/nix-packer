@@ -140,3 +140,11 @@ There are issues with systemd-udevd though, but it comes up at least:
 Nov 02 10:57:17 nixbox systemd-udevd[391]: seq 946 '/devices/pci0000:00/0000:00>Nov 02 10:57:17 nixbox systemd-udevd[391]: seq 952 '/devices/pci0000:00/0000:00>Nov 02 10:57:17 nixbox systemd-udevd[391]: worker [487] terminated by signal 9 >Nov 02 10:57:17 nixbox systemd-udevd[391]: worker [487] failed while handling '>Nov 02 10:57:32 nixbox systemd-udevd[391]: worker [413] terminated by signal 9 >Nov 02 10:57:32 nixbox systemd-udevd[391]: worker [413] failed while handling '>Nov 02 10:57:32 nixbox systemd-udevd[391]: worker [414] terminated by signal 9 >Nov 02 10:57:32 nixbox systemd-udevd[391]: worker [414] failed while handling '>Nov 02 10:57:33 nixbox systemd-udevd[391]: worker [415] terminated by signal 9 >lines 1-23/24 93%
 
 What also doesn't work yet is the host folder mount at /vagrant.
+
+NixOps will probably shine in comarison with the hack needed to make the vbox shared folder work, which basically seems to be adding configuration.nix entries in the postinstall.sh script only.
+
+virtualbox-iso: A dependency job for local-fs.target failed. See 'journalctl -xe' for details.
+
+$ nix repl
+> c = import <nixpkgs/nixos> {}
+> c.config.fileSystems."/mnt"
